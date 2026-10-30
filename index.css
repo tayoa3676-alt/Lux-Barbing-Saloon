@@ -1,106 +1,224 @@
+/* ========================================
+   GENERAL STYLES
+======================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+section[id],
+footer {
+    scroll-margin-top: 100px;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+/* ========================================
+   HEADER AND NAVIGATION
+======================================== */
+
 header {
-   padding: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.115);
-  position: fixed;
-  background: linear-gradient(160deg, rgb(45, 67, 119) 0px, rgb(50, 44, 134) 60%, rgb(45, 67, 119) 100%) ;
-  width: 100%;
-  top: 0;
-  z-index: 5;
+    width: 100%;
+    padding: 20px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    background: linear-gradient(
+        160deg,
+        rgb(45, 67, 119) 0px,
+        rgb(50, 44, 134) 60%,
+        rgb(45, 67, 119) 100%
+    );
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.115);
 }
 
 .header-lux {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: auto;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
+
+    position: relative;
 }
 
 .header-lux h1 {
-    font-size: 35px;
     color: white;
+    font-size: 35px;
+    white-space: nowrap;
 }
 
 .header-lux nav ul {
-    list-style: none;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 20px;
-    transition: 0.3s ease-in-out;
+
+    list-style: none;
 }
 
 .header-lux nav ul li a {
-    transition: 0.5s ease-in-out;
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 0;
+    transition: 0.3s ease-in-out;
+    white-space: nowrap;
 }
 
 .header-lux nav ul li a:hover {
-    color: rgb(1, 1, 10);
+    color: black;
     transform: translateY(-4px);
 }
 
-.header-lux ul li {
-    display: flex;
-    transition: 0.3s ease-in-out;
+
+/* ========================================
+   HAMBURGER MENU
+======================================== */
+
+.menu-toggle {
+    display: none;
+
+    width: 45px;
+    height: 42px;
+
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+
+    background: transparent;
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    flex-shrink: 0;
 }
 
-.header-lux nav ul li a {
-    color: white;
-    justify-content: space-between;
-    text-decoration: none;
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+
+    background-color: white;
+    border-radius: 5px;
+
+    transition: 0.3s ease;
 }
 
-/* Home Section */
+/* Hamburger changes into X */
+
+.menu-toggle.active span:first-child {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ========================================
+   HOME SECTION
+======================================== */
 
 #home {
+    min-height: 550px;
+
+    margin-top: 70px;
+    padding: 150px 5%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(./Assets/baber.jpg);
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("./Assets/baber.jpg");
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 150px 5%;
-    margin-top: 50px;
 }
 
 #home h2 {
+    width: 100%;
+    max-width: 750px;
+
     color: white;
     font-size: 50px;
-    text-align: center;
-    width: 100%;
-    max-width: 600px;
     font-weight: 1000;
+    line-height: 1.2;
+    text-align: center;
 }
 
 #home p {
-    color: white;
     width: 100%;
-    max-width: 500px;
-    line-height: 30px;
-    text-align: center;
-    font-weight: 500;
+    max-width: 650px;
+
     margin-top: 20px;
+
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.8;
+    text-align: center;
 }
 
 #home a {
-    color: white;
-    text-decoration: none;
+    width: 200px;
+    min-height: 48px;
+
+    margin-top: 40px;
+    padding: 10px;
+
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
+
+    color: white;
+    text-decoration: none;
+    text-align: center;
+
     background-color: blue;
-    margin-top: 100px;
-    padding: 10px;
-    width: 200px;
     border-radius: 20px;
+
     transition: 0.3s ease-in-out;
 }
 
@@ -109,72 +227,118 @@ header {
     transform: translateY(-4px);
 }
 
-/* Space Section */
-#space {
-    background:  linear-gradient(160deg, rgb(45, 67, 119) 0px, rgb(50, 44, 134) 60%, rgb(45, 67, 119) 100%) ;
-}
-#space ul {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    /* flex-wrap: wrap; */
-    /* gap: 15px; */
+
+/* ========================================
+   SPACE SECTIONS
+======================================== */
+
+.space {
+    padding: 20px 5%;
+
+    background: linear-gradient(
+        160deg,
+        rgb(45, 67, 119) 0px,
+        rgb(50, 44, 134) 60%,
+        rgb(45, 67, 119) 100%
+    );
 }
 
-#space ul li {
+.space ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px 25px;
+
+    list-style: none;
+}
+
+.space ul li {
     color: white;
-    list-style: circle;
+    font-size: 15px;
     font-weight: 900;
 }
 
-/* About Section */
+
+/* ========================================
+   ABOUT SECTION
+======================================== */
+
 #about {
-    background: linear-gradient(rgb(0, 0, 0, 0.4), rgb(0, 0, 0, 0.4)), url(./Assets/barber-2.jpg);
+    padding: 150px 5%;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url("./Assets/barber-2.jpg");
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding: 150px 5%;
 }
 
 .about-us {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+
     display: flex;
-    /* justify-content: center; */
     justify-content: space-between;
-    
+    align-items: center;
+    gap: 60px;
 }
 
-.about-left  h2{ 
-color: white;
-font-size: 50px;
-margin: 0;
+.about-left,
+.about-right {
+    flex: 1;
+    min-width: 0;
+}
+
+.about-left h2 {
+    color: white;
+    font-size: 50px;
+    line-height: 1.2;
 }
 
 .about-left p {
-    color: white;
     width: 100%;
-    max-width: 400px;
-    line-height: 30px;
-    font-weight: 700;
+    max-width: 550px;
+
     margin-top: 20px;
+
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.8;
 }
 
 .about-right {
-    margin-top: 50px;
+    margin-top: 0;
 }
+
 .about-right h3 {
     color: white;
-    /* margin-right: 100px; */
+    font-size: 28px;
+}
+
+.about-right ul {
+    list-style: none;
 }
 
 .about-right ul li {
-    color: rgb(0, 0, 0);
-    font-weight: bolder;
-    list-style: none;
     margin-top: 20px;
-    padding: 5px;
+    padding: 12px;
+
+    color: black;
     background-color: white;
-    border-radius: 20px;
+
+    font-size: 15px;
+    font-weight: bold;
     text-align: center;
+
+    border-radius: 20px;
     transition: 0.3s ease-in-out;
 }
 
@@ -185,56 +349,76 @@ margin: 0;
 }
 
 
-/*  Service Section */
+/* ========================================
+   SERVICES SECTION
+======================================== */
+
 #service {
-    background: linear-gradient(rgb(0, 0, 0, 0.2), rgb(0, 0, 0, 0.2)), url(./Assets/barber-3.png);
-    background-position: start;
+    padding: 100px 5%;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.2)
+        ),
+        url("./Assets/barber-3.png");
+
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 100px 5%;
 }
 
 #service h2 {
     color: white;
-    text-align: center;
-    position: relative;
     font-size: 50px;
+    text-align: center;
 }
 
 .service-p {
-    color: white;
     width: 100%;
-    max-width: 390px;
-    text-align: center;
+    max-width: 600px;
+
     margin: 0 auto;
-    line-height: 25px;
-    font-weight: 700;
     padding-top: 20px;
+
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.8;
+    text-align: center;
 }
 
 #service h3 {
+    margin-top: 35px;
+
     color: white;
     font-size: 30px;
 }
 
 .service-card {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 20px auto 0;
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
-    justify-content: space-between;
-    max-width: 900px;
-    margin: 0 auto;
-    margin-top: 10px;
-    
 }
 
 .sub-service-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 95px;
+
+    padding: 18px 100px 18px 18px;
+
     background-color: white;
     border-radius: 20px;
-    padding: 10px;
-    padding-right: 70px;
+
+    position: relative;
+
     transition: 0.4s ease-in-out;
-      position: relative;
 }
 
 .sub-service-card:hover {
@@ -246,197 +430,305 @@ margin: 0;
 .sub-service-card h4 {
     font-size: 20px;
 }
+
 .sub-service-card p {
+    margin-top: 5px;
+
     color: grey;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.sub-service-card:hover p {
+    color: white;
 }
 
 .sub-service-card span {
     position: absolute;
-    top: 15px;
-    right: 18px;  
+    top: 20px;
+    right: 18px;
+
+    font-weight: bold;
+    white-space: nowrap;
 }
 
-#service a {
-    color: white;
-    text-decoration: none;
-    background-color: blue;
-    text-align: center;
+#service > a {
+    width: 200px;
+    min-height: 48px;
+
+    margin: 30px auto 0;
+    padding: 10px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    width: 200px;
-    margin: 30px auto 0;
+
+    color: white;
+    text-decoration: none;
+    text-align: center;
+
+    background-color: blue;
     border-radius: 20px;
+
     transition: 0.3s ease-in-out;
 }
 
-#service a:hover {
+#service > a:hover {
     background-color: rgb(10, 10, 81);
     transform: translateY(-4px);
-    color: white;
 }
-   
-/* Gallery Section */
+
+
+/* ========================================
+   GALLERY SECTION
+======================================== */
+
 #gallery {
-    background: linear-gradient(160deg, rgb(63, 97, 174) 0px, rgb(50, 44, 134) 60%, rgb(63, 97, 178) 100%);
     padding: 100px 5%;
+
+    background: linear-gradient(
+        160deg,
+        rgb(63, 97, 174) 0px,
+        rgb(50, 44, 134) 60%,
+        rgb(63, 97, 178) 100%
+    );
 }
 
 #gallery h2 {
     color: white;
-    font-size: 70px;
+    font-size: 60px;
     text-align: center;
-    position: relative;
-    
 }
 
 #gallery p {
-    color: white;
     width: 100%;
-     max-width: 400px;
-    line-height: 25px;   
-     font-weight: 600;
-     font-style: oblique;
-     margin: 10px auto;
-     margin-bottom: 50px;
+    max-width: 650px;
+
+    margin: 10px auto 50px;
+
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: oblique;
+    line-height: 1.8;
+    text-align: center;
 }
 
 .gallery-img {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
 }
 
 .gallery-img img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+
     border-radius: 20px;
     transition: 0.3s ease-in-out;
 }
 
-.gallery-img img:hover  {
+.gallery-img img:hover {
     transform: scale(1.05);
 }
 
-/* Appointment Section */
+
+/* ========================================
+   APPOINTMENT SECTION
+======================================== */
 
 #appointment {
-background: linear-gradient(160deg, rgb(63, 97, 174) 0px, rgb(50, 44, 134) 60%, rgb(63, 97, 178) 100%);
-padding: 100px 5%;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-align-items: center;
-gap: 50px;
+    padding: 100px 5%;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 50px;
+
+    background: linear-gradient(
+        160deg,
+        rgb(63, 97, 174) 0px,
+        rgb(50, 44, 134) 60%,
+        rgb(63, 97, 178) 100%
+    );
 }
 
 .appointment-left {
-    background: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(./Assets/barber-3.png);
-     background-position: center;
-     background-size: cover;
-     background-repeat: no-repeat;
-     padding: 30px;
-     border-radius: 20px;
-     width: 100%;
-     max-width: 350px;
-     margin: 0 auto;
-    color: white;
-    line-height: 30px;
-    font-weight: 800;
-    font-style: oblique;
-    font-size: 20px;
-}
+    width: 100%;
+    min-height: 300px;
 
-.appointment-right {
-     background-color: white;
-     padding: 10px 30px;
-     border-radius: 20px;
-     box-shadow: 0 0 8px cyan, 0 0 8px cyan inset;
-     width: 100%;
-     max-width: 450px;
-     margin: 0 auto;
-}
+    padding: 35px;
 
-.appointment-right h2 {
-    color: rgb(0, 0, 0);  
-    padding-top: 20px; 
-}
+    display: flex;
+    align-items: center;
 
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("./Assets/barber-3.png");
 
-.appointment-right form input, .appointment-right form select, .appointment-right form button {
- width: 100%;
- max-width: 500px;
-  padding: 10px;
-  border-radius: 20px;
-  margin-top: 10px;
-  border:2px solid #22467a;
-  color: black;
-  
-} 
-
-.appointment-right form input, .appointment-right form select  {
- width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-  border:2px solid #22467a;
-  color: black;
-} 
-
-.appointment-right button {
-    background-color: rgb(13, 13, 129);
-    border-radius: 50px;
-    transition: 0.3s ease-in-out;
-}
-
-.appointment-right button:hover {
-    background-color: blue;
-    transform: translateY(-2px);
-    color: white;
-}
-
-
-/* Contact Section */
-#contact {
-    background:  linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(./Assets/barber-2.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    /* padding: 200px; */
+
+    border-radius: 20px;
+
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    font-style: oblique;
+    line-height: 1.8;
 }
 
-.contact-card h2 {
-    color: white;
-    text-align: center;
-    font-size: 50px;
-    padding-top: 70px;
+.appointment-right {
+    width: 100%;
+
+    padding: 25px 30px;
+
+    background-color: white;
+
+    border-radius: 20px;
+    box-shadow: 0 0 8px cyan, 0 0 8px cyan inset;
 }
 
-.contact-card p {
-    color: white;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 30px;
+.appointment-right h2 {
+    padding-top: 10px;
+    margin-bottom: 15px;
+
+    color: black;
+    font-size: 28px;
+}
+
+.appointment-right form label {
+    display: block;
+    margin-top: 15px;
+
+    font-size: 14px;
     font-weight: 600;
 }
 
+.appointment-right form input,
+.appointment-right form select {
+    width: 100%;
+    min-height: 45px;
+
+    margin-top: 8px;
+    padding: 10px;
+
+    color: black;
+    background-color: white;
+
+    border: 2px solid #22467a;
+    border-radius: 5px;
+}
+
+.appointment-right form button {
+    width: 100%;
+    min-height: 48px;
+
+    margin-top: 20px;
+    padding: 10px;
+
+    color: white;
+    background-color: rgb(13, 13, 129);
+
+    border: none;
+    border-radius: 50px;
+
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.appointment-right form button:hover {
+    background-color: blue;
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   CONTACT SECTION
+======================================== */
+
+#contact {
+    padding: 60px 5%;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("./Assets/barber-2.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contact-card {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.contact-card h2 {
+    padding-top: 20px;
+
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+.contact-card p {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 30px auto 0;
+
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.8;
+    text-align: center;
+}
+
 .contact-card ul {
-    padding: 40px;
+    width: 100%;
+    max-width: 850px;
+
+    margin: auto;
+    padding: 40px 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+
     color: rgb(37, 17, 17);
-    line-height: 30px;
     list-style: none;
-    gap: 20px;
 }
 
 .contact-card ul li {
+    width: 100%;
+    min-width: 0;
+
+    padding: 12px;
+
     background-color: white;
     border-radius: 20px;
-    width: 100%;
-    max-width: 300px;
-    margin-top: 10px;
-    padding: 7px;
+
+    font-size: 15px;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+
     transition: 0.3s ease-in-out;
 }
 
@@ -450,20 +742,30 @@ gap: 50px;
     color: white;
 }
 
-/* Footer section */
+
+/* ========================================
+   FOOTER
+======================================== */
+
 footer {
-    background: linear-gradient(160deg, rgb(8, 22, 55) 0px, rgb(12, 9, 56) 60%, rgb(3, 15, 43) 100%);
-    color: white;
-    padding: 20px;
+    padding: 30px 5%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    flex-wrap: wrap;
+    gap: 20px;
+
+    background: linear-gradient(
+        160deg,
+        rgb(8, 22, 55) 0px,
+        rgb(12, 9, 56) 60%,
+        rgb(3, 15, 43) 100%
+    );
+
+    color: white;
 }
 
-footer p {
-    margin-top: 20px;
-}
 footer h3 {
     transition: 0.3s ease-in-out;
 }
@@ -472,23 +774,36 @@ footer h3:hover {
     color: rgb(48, 48, 237);
 }
 
+footer p {
+    margin-top: 0;
+    line-height: 1.7;
+}
+
 footer a {
-    color: white;
-    text-decoration: none;
     position: fixed;
     right: 25px;
     bottom: 25px;
-    background-color: rgb(8, 8, 97);
+    z-index: 4;
+
     padding: 15px;
+
+    color: white;
+    background-color: rgb(8, 8, 97);
+
+    text-decoration: none;
     border-radius: 50%;
+
     transition: 0.4s ease-in-out;
 }
 
 footer a:hover {
-transform: translateY(-4px);
+    transform: translateY(-4px);
 }
 
-/* SMOOTH SCROLL REVEAL */
+
+/* ========================================
+   SCROLL REVEAL ANIMATION
+======================================== */
 
 .scroll-reveal {
     opacity: 0;
@@ -507,33 +822,38 @@ transform: translateY(-4px);
 }
 
 
+/* ========================================
+   SMALL LAPTOPS AND TABLETS
+======================================== */
 
-
-/* TABLETS AND SMALL LAPTOPS */
 @media screen and (max-width: 1024px) {
-
-    .header-lux {
-        padding: 15px 25px;
-    }
 
     .header-lux h1 {
         font-size: 28px;
     }
 
     .header-lux nav ul {
-        gap: 15px;
+        gap: 12px;
     }
 
-    #about .about-us {
-        gap: 25px;
+    #about {
+        padding: 100px 5%;
+    }
+
+    .about-us {
+        gap: 30px;
+    }
+
+    .about-left h2 {
+        font-size: 42px;
     }
 
     .service-card {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 
     .gallery-img {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     #appointment {
@@ -542,106 +862,375 @@ transform: translateY(-4px);
 }
 
 
-/* MOBILE PHONES */
-@media screen and (max-width: 768px) {
+/* ========================================
+   TABLETS AND SMALLER DEVICES
+======================================== */
+
+@media screen and (max-width: 900px) {
+
+    /* HAMBURGER NAVIGATION */
+
+    header {
+        padding: 15px 5%;
+    }
 
     .header-lux {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+        width: 100%;
     }
 
     .header-lux h1 {
-        font-size: 24px;
+        font-size: 26px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .header-lux nav {
+        display: none;
+
+        position: absolute;
+        top: calc(100% + 15px);
+        right: 0;
+
+        width: min(300px, calc(100vw - 40px));
+        padding: 12px;
+
+        background: linear-gradient(
+            160deg,
+            rgb(45, 67, 119),
+            rgb(50, 44, 134) 60%,
+            rgb(45, 67, 119)
+        );
+
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+        z-index: 10;
+    }
+
+    .header-lux nav.open {
+        display: block;
     }
 
     .header-lux nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .header-lux nav ul li {
+        display: block;
+    }
+
+    .header-lux nav ul li a {
+        display: block;
+        padding: 14px;
+
+        font-size: 16px;
+        white-space: normal;
+
+        border-radius: 6px;
+    }
+
+    .header-lux nav ul li a:hover {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.15);
+        transform: none;
     }
 
     #home {
-        padding: 80px 20px;
-        text-align: center;
+        margin-top: 70px;
     }
 
-    #home h2 {
-        font-size: 30px;
+    /* ABOUT */
+
+    .about-us {
+        gap: 25px;
     }
 
-    #about .about-us {
-        flex-direction: column;
-        padding: 30px 20px;
-    }
-
-    .service-card {
-        grid-template-columns: 1fr;
-    }
+    /* GALLERY */
 
     .gallery-img {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    /* APPOINTMENT */
 
     #appointment {
         grid-template-columns: 1fr;
-        padding: 30px 20px;
+        gap: 30px;
     }
 
     .appointment-left,
     .appointment-right {
         width: 100%;
-    }
-
-    #contact .contact-card {
-        padding: 25px 20px;
-    }
-
-    footer {
-        text-align: center;
+        max-width: 650px;
+        margin: auto;
     }
 }
 
 
-/* VERY SMALL PHONES */
-@media screen and (max-width: 480px) {
+/* ========================================
+   MOBILE PHONES
+======================================== */
+
+@media screen and (max-width: 600px) {
+
+    header {
+        padding: 12px 5%;
+    }
 
     .header-lux h1 {
-        font-size: 21px;
+        font-size: clamp(19px, 5vw, 24px);
     }
 
-    .header-lux nav ul {
-        gap: 8px;
+    .menu-toggle {
+        width: 42px;
+        height: 40px;
     }
 
-    .header-lux nav ul li a {
-        font-size: 14px;
+    /* HOME */
+
+    #home {
+        min-height: 480px;
+
+        margin-top: 65px;
+        padding: 75px 6%;
     }
 
     #home h2 {
+        font-size: clamp(30px, 8vw, 40px);
+    }
+
+    #home p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    #home a {
+        margin-top: 30px;
+    }
+
+    /* SPACE */
+
+    .space {
+        padding: 18px 5%;
+    }
+
+    .space ul {
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    .space ul li {
+        font-size: 13px;
+    }
+
+    /* ABOUT */
+
+    #about {
+        padding: 70px 6%;
+    }
+
+    .about-us {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 35px;
+    }
+
+    .about-left h2 {
+        font-size: clamp(30px, 8vw, 38px);
+    }
+
+    .about-left p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .about-right {
+        margin-top: 0;
+    }
+
+    .about-right h3 {
         font-size: 25px;
     }
 
-    #home p,
-    #about p,
-    #service .service-p,
-    #gallery p {
-        font-size: 14px;
-        line-height: 1.7;
+    /* SERVICES */
+
+    #service {
+        padding: 70px 6%;
+    }
+
+    #service h2 {
+        font-size: clamp(32px, 8vw, 40px);
+    }
+
+    .service-p {
+        font-size: 16px;
+    }
+
+    #service h3 {
+        font-size: 25px;
     }
 
     .service-card {
+        grid-template-columns: 1fr;
         gap: 15px;
+    }
+
+    .sub-service-card {
+        padding: 18px 100px 18px 18px;
+    }
+
+    /* GALLERY */
+
+    #gallery {
+        padding: 70px 6%;
+    }
+
+    #gallery h2 {
+        font-size: clamp(35px, 9vw, 45px);
+    }
+
+    .gallery-img {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .gallery-img img {
         width: 100%;
-        height: auto;
+        aspect-ratio: 4 / 3;
     }
 
-    .appointment-right input,
-    .appointment-right select {
-        width: 100%;
+    /* APPOINTMENT */
+
+    #appointment {
+        padding: 60px 6%;
+        gap: 25px;
+    }
+
+    .appointment-left {
+        min-height: 250px;
+        padding: 25px;
+        font-size: 17px;
+    }
+
+    .appointment-right {
+        padding: 20px;
+    }
+
+    .appointment-right h2 {
+        font-size: 25px;
+    }
+
+    /* CONTACT */
+
+    #contact {
+        padding: 50px 6%;
+    }
+
+    .contact-card h2 {
+        font-size: 38px;
+    }
+
+    .contact-card p {
+        font-size: 15px;
+    }
+
+    .contact-card ul {
+        grid-template-columns: 1fr;
+        padding: 30px 0;
+    }
+
+    .contact-card ul li {
+        font-size: 14px;
+    }
+
+    /* FOOTER */
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    footer p {
+        font-size: 14px;
     }
 }
 
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
+@media screen and (max-width: 380px) {
+
+    .header-lux h1 {
+        font-size: 18px;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 38px;
+    }
+
+    #home h2 {
+        font-size: 28px;
+    }
+
+    #home p {
+        font-size: 15px;
+    }
+
+    .sub-service-card {
+        padding: 18px 85px 18px 12px;
+    }
+
+    .sub-service-card h4 {
+        font-size: 17px;
+    }
+
+    .sub-service-card span {
+        right: 10px;
+        font-size: 13px;
+    }
+
+    .appointment-right {
+        padding: 15px;
+    }
+}
+
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid cyan;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
